@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head.ejs') %>
+
+  <body>
+    <!-- Navigation -->
+    <%- include('partials/navbar.ejs') %>
+
+    <!-- Page Content -->
+    <div class="container full-height">
+      <div class="row">
+        <!-- sidebar -->
+        <%- include('partials/sidebar') %>
+
+        <div class="col-lg-9 mt-4">
+          <!-- Body of the page  -->
+          <%- body %>
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>

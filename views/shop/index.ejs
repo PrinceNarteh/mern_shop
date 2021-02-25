@@ -1,0 +1,32 @@
+<!-- Carousel  -->
+<%- include('partials/carousel.ejs') %>
+
+<div class="row">
+
+  <% if (products.length > 0) { %>
+    <% for( let product of products ) { %>
+    
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <a href="#"
+            ><img
+              class="card-img-top"
+              src="<%= product.imageUrl %> "
+              alt=""
+          /></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#"><%= product.title %> </a>
+            </h4>
+            <h5>$<%= product.price %> </h5>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-outline-success" href="/products/<%= product.id %> ">Details</a>
+          </div>
+        </div>
+      </div>
+    <% } %>   
+  <% } %>
+<!-- /.row -->
+</div>
+</div>
