@@ -1,17 +1,35 @@
-<h1 class="">Add Product</h1>
+<h1 class=""><%= pageTitle %></h1>
 <div>
   <form action="/admin/add-product" method="POST">
     <div class="form-group">
       <label for="name">Title:</label>
-      <input type="text" class="form-control" id="title" name="title" />
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        value="<%= edit ? product.title : '' %>"
+      />
     </div>
     <div class="form-group">
       <label for="price">Price:</label>
-      <input type="number" class="form-control" id="price" name="price" />
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        name="price"
+        value="<%= edit ? product.price : '' %>"
+      />
     </div>
     <div class="form-group">
       <label for="imageUrl">Image URL:</label>
-      <input type="text" class="form-control" id="imageUrl" name="imageUrl" />
+      <input
+        type="text"
+        class="form-control"
+        id="imageUrl"
+        name="imageUrl"
+        value="<%= edit ? product.imageUrl : '' %>"
+      />
     </div>
     <div class="form-group">
       <label for="description">Description:</label>
@@ -20,8 +38,9 @@
         class="form-control"
         id="description"
         name="description"
+        value="<%= edit ? product.description : '' %>"
       />
     </div>
-    <button type="submit" class="btn btn-success">Add Product</button>
+    <button type="submit" class="btn btn-success"><%= pageTitle %></button>
   </form>
 </div>
