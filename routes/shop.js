@@ -4,6 +4,6 @@ const shopController = require("../controllers/shopController");
 
 /* GET home page. */
 router.route("/").get(shopController.getAllProduct);
-router.route('/products/:productId').get(shopController.productDetails);
+router.route("/products/:productId").get(shopController.productDetails);
 
 module.exports = router;

@@ -9,7 +9,7 @@ class Product {
   }
 
   save() {
-    this.id = Math.floor(Math.random() * 10000);
+    this.id = Math.floor(Math.random() * 10000).toString();
     products.push(this);
   }
 
@@ -18,7 +18,7 @@ class Product {
   }
 
   static findById(id) {
-    return products.find(product => product.id === id);
+    return products.find((product) => product.id === id);
   }
 }
 
