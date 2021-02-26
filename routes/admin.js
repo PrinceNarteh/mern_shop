@@ -8,4 +8,6 @@ router
   .get(adminController.addProductForm)
   .post(adminController.addProduct);
 
+router.route("/edit-product/:productId").get(adminController.editProductForm);
+
 module.exports = router;
