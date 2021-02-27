@@ -8,8 +8,11 @@ router
   .get(adminController.addProductForm)
   .post(adminController.addProduct);
 
-router.route("/edit-product/:productId")
+router
+  .route("/edit-product/:productId")
   .get(adminController.editProductForm)
   .post(adminController.editProduct);
+
+router.post("/delete-product/:productId", adminController.deletePost);
 
 module.exports = router;

@@ -14,3 +14,14 @@
   <h3>$<%= product.price %></h3>
 </div>
 <p><%= product.description %></p>
+<div class="d-flex justify-content-end">
+  <a
+    class="btn btn-outline-info mr-4 mb-4"
+    href="admin/edit-product/<%= product.id %>"
+  >
+    Edit
+  </a>
+  <form action="admin/delete-product/<%= product.id %>" method="POST">
+    <button type="submit" class="btn btn-outline-danger">Delete</button>
+  </form>
+</div>

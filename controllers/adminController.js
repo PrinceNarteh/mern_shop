@@ -1,10 +1,10 @@
 const Product = require("../models/product");
 
 exports.addProductForm = (_req, res, _next) => {
-  res.render("admin/add-product", {
+  res.render("admin/form", {
     path: "/admin/add-product",
     pageTitle: "Add Product",
-    edit: false
+    edit: false,
   });
 };
 
@@ -18,24 +18,30 @@ exports.addProduct = (req, res, _next) => {
 exports.editProductForm = (req, res, _next) => {
   const { productId } = req.params;
   const product = Product.findById(productId);
-  res.render("admin/add-product", {
+  res.render("admin/form", {
     product,
     pageTitle: "Edit Product",
     path: "/admin/add-product",
-    edit: true
+    edit: true,
   });
 };
 
 exports.editProduct = (req, res, next) => {
   const { title, price, description, imageUrl } = req.body;
   const { productId } = req.params;
-  const updatedProduct = new Product({ id: productId, title, description, price, imageUrl });
+  const updatedProduct = new Product({
+    id: productId,
+    title,
+    description,
+    price,
+    imageUrl,
+  });
   updatedProduct.update();
-  res.redirect('/');
-}
+  res.redirect("/");
+};
 
 exports.deletePost = (req, res, next) => {
   const { productId } = req.params;
   Product.findByIdAndDelete(productId);
-  res.redirect('/');
-}
+  res.redirect("/");
+};

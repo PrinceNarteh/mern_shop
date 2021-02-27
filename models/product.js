@@ -1,4 +1,4 @@
-const products = [];
+let products = [];
 
 class Product {
   constructor({ id = null, title, description, price, imageUrl }) {
@@ -23,13 +23,15 @@ class Product {
   }
 
   update() {
-    const editedProduct = products.findIndex(product => product.id === this.id);
+    const editedProduct = products.findIndex(
+      (product) => product.id === this.id
+    );
     console.log(this);
     products[editedProduct] = this;
   }
 
   static findByIdAndDelete(id) {
-    products.filter(product => product.id !== id);
+    products = products.filter((product) => product.id !== id);
   }
 }
 
