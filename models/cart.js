@@ -32,6 +32,14 @@ class Cart {
   static getCart() {
     return cart;
   }
+
+  static removeFromCart(productId) {
+    const productIndex = cart.products.findIndex(
+      (product) => product.id === productId
+    );
+    cart.products.splice(productIndex, 1);
+    calculateTotalPrice(cart);
+  }
 }
 
 module.exports = Cart;

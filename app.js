@@ -34,7 +34,7 @@ app.use(function (err, req, res, _next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error", { pageTitle: "Error", path: "/error" });
 });
 
 module.exports = app;

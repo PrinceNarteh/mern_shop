@@ -1,4 +1,4 @@
-let products = [];
+const products = [];
 
 class Product {
   constructor({ id = null, title, description, price, imageUrl }) {
@@ -26,12 +26,12 @@ class Product {
     const editedProduct = products.findIndex(
       (product) => product.id === this.id
     );
-    console.log(this);
     products[editedProduct] = this;
   }
 
   static findByIdAndDelete(id) {
-    products = products.filter((product) => product.id !== id);
+    const productIndex = products.findIndex((product) => product.id === id);
+    products.splice(productIndex, 1);
   }
 }
 

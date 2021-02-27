@@ -41,7 +41,6 @@ exports.editProduct = (req, res, next) => {
 };
 
 exports.deletePost = (req, res, next) => {
-  const { productId } = req.params;
-  Product.findByIdAndDelete(productId);
+  Product.findByIdAndDelete(req.params.productId);
   res.redirect("/");
 };

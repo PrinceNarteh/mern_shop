@@ -16,9 +16,21 @@ exports.productDetails = (req, res, _next) => {
   });
 };
 
+exports.getCart = (req, res, next) => {
+  res.render("shop/cart", {
+    cart: Cart.getCart(),
+    path: "/cart",
+    pageTitle: "Cart",
+  });
+};
+
 exports.addToCart = (req, res, _next) => {
   const product = Product.findById(req.params.productId);
   Cart.save(product);
-  console.log(Cart.getCart());
   res.redirect("/");
+};
+
+exports.removeFromCart = (req, res, next) => {
+  Cart.removeFromCart(req.params.productId);
+  res.redirect("/cart");
 };

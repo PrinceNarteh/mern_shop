@@ -1,0 +1,47 @@
+<h1>Cart Details</h1>
+<% if (cart.products.length <= 0) { %>
+<div
+  style="height: 64vh"
+  class="d-flex align-items-center justify-content-center"
+>
+  <h1 class="text-muted text-center mt-4">No Item In Shopping Cart</h1>
+</div>
+
+<% } else { %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for( let index = 0; index < cart.products.length; index++ ) { %>
+    <tr>
+      <th scope="row"><%= index + 1 %></th>
+      <td><%= cart.products[index].title %></td>
+      <td><%= cart.products[index].quantity %></td>
+      <td>$<%= cart.products[index].price %></td>
+      <td>
+        <form
+          action="/remove-from-cart/<%= cart.products[index].id %>"
+          method="POST"
+        >
+          <button type="submit" class="btn btn-outline-danger">Remove</button>
+        </form>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+  <tr>
+    <th scope="row"></th>
+    <td></td>
+    <td><strong>Total</strong></td>
+    <td><strong>$<%= cart.totalPrice %></strong></td>
+  </tr>
+</table>
+<% } %>
